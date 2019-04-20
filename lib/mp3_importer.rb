@@ -14,6 +14,7 @@ class MP3Importer
   
   def import 
   filenames = Dir.entries('./spec/fixtures/mp3s').slice!(0...4)
+  binding.pry
   filenames.each do |names|
     Song.new_by_filename(names)
   end

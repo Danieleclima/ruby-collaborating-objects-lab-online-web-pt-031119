@@ -22,13 +22,21 @@ def self.all
 end
 
 def self.find_or_create_by_name (name)
+
   self.all.collect do |singer|
     if singer.name == name
        return singer
     else
       return self.new(name)
+  self.all.each do |singer|
+    if singer.name == name
+      singer
+    else
+      self.new(name)
     end
   end
+end
+end
 end
 
 def print_songs
@@ -36,5 +44,4 @@ def print_songs
     puts song.name 
   end
 end
-
 end
